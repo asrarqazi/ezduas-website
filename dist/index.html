@@ -23,9 +23,8 @@
           <h1>Duas for every moment.</h1>
           <p class="lead">Discover authentic daily duas in Arabic, with transliteration and meaning—organized to help you find the right words when you need them.</p>
           <div class="actions"><a class="button" href="support/">Get support</a><a class="button secondary" href="#features">Explore features</a></div>
-          <a class="store-badge" href="https://apps.apple.com/app/id6824702164" aria-label="EZ Duas — coming soon to the App Store">
-            <span class="store-badge-icon" aria-hidden="true">A</span>
-            <span><small>Coming soon to the</small>App Store</span>
+          <a class="app-store-link" href="https://apps.apple.com/app/id6824702164" aria-label="Download EZ Duas on the App Store">
+            <img src="app-store-badge.svg" alt="Download on the App Store">
           </a>
         </div>
         <aside class="dua-card" aria-label="Example dua">
@@ -40,14 +39,17 @@
             <p class="eyebrow">A closer look</p>
             <h2>Made for moments of remembrance.</h2>
           </div>
-          <p>Move easily from discovery to reading, with clear Arabic, transliteration, meaning, and sources kept together.</p>
+          <div class="preview-controls" aria-label="Screenshot controls">
+            <button class="carousel-button" type="button" data-carousel-previous aria-label="Previous screenshot">←</button>
+            <button class="carousel-button" type="button" data-carousel-next aria-label="Next screenshot">→</button>
+          </div>
         </div>
-        <div class="screenshot-grid">
+        <div class="screenshot-carousel" data-carousel tabindex="0" aria-label="EZ Duas app screenshots">
           <figure class="phone-shot">
             <img src="screenshots/categories.png" alt="EZ Duas category browser showing daily dua collections" loading="lazy">
             <figcaption>Browse by moment</figcaption>
           </figure>
-          <figure class="phone-shot phone-shot-offset">
+          <figure class="phone-shot">
             <img src="screenshots/prayer-list.png" alt="Prayer and Masjid duas with the category navigation open" loading="lazy">
             <figcaption>Find the right dua</figcaption>
           </figure>
@@ -55,7 +57,7 @@
             <img src="screenshots/dua-reading.png" alt="Dua reading screen with large Arabic text and transliteration" loading="lazy">
             <figcaption>Read with clarity</figcaption>
           </figure>
-          <figure class="phone-shot phone-shot-offset">
+          <figure class="phone-shot">
             <img src="screenshots/favorite-share.png" alt="Dua detail screen with meaning, source, favorite, and sharing controls" loading="lazy">
             <figcaption>Save and share</figcaption>
           </figure>
@@ -76,5 +78,16 @@
 
     <footer><span>© 2026 Issa Codeworks. All rights reserved.</span><span class="footer-links"><a href="support/">Support</a><a href="privacy/">Privacy</a></span></footer>
   </div>
+  <script>
+    const carousel = document.querySelector("[data-carousel]");
+    const moveCarousel = (direction) => {
+      const slide = carousel.querySelector(".phone-shot");
+      const gap = parseFloat(getComputedStyle(carousel).columnGap) || 0;
+      carousel.scrollBy({ left: direction * (slide.offsetWidth + gap), behavior: "smooth" });
+    };
+
+    document.querySelector("[data-carousel-previous]").addEventListener("click", () => moveCarousel(-1));
+    document.querySelector("[data-carousel-next]").addEventListener("click", () => moveCarousel(1));
+  </script>
 </body>
 </html>
