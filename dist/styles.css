@@ -103,6 +103,32 @@ h2 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 500; }
 }
 .button.secondary { background: transparent; color: var(--ink); }
 
+.store-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+    padding: 9px 16px 10px;
+    border-radius: 12px;
+    background: #111;
+    color: var(--white);
+    line-height: 1.05;
+    text-decoration: none;
+}
+.store-badge-icon {
+    display: grid;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    border: 2px solid currentColor;
+    border-radius: 8px;
+    font-size: .92rem;
+    font-weight: 800;
+}
+.store-badge span:last-child { font-size: 1.15rem; font-weight: 650; }
+.store-badge small { display: block; margin-bottom: 3px; font-size: .65rem; font-weight: 500; }
+.store-badge:hover { background: #2a2a2a; }
+
 .dua-card {
     position: relative;
     overflow: hidden;
@@ -124,6 +150,38 @@ h2 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 500; }
 }
 .arabic { margin: 0 0 28px; font-family: Georgia, serif; font-size: 2.2rem; line-height: 1.8; text-align: right; }
 .translation { margin: 0; color: #36534d; font-family: Georgia, serif; font-size: 1.08rem; }
+
+.preview { padding: 94px 0 110px; border-top: 1px solid #d9dfd8; }
+.preview-heading {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    align-items: end;
+    gap: 48px;
+    margin-bottom: 54px;
+}
+.preview-heading > p { margin: 0 0 4px; color: var(--muted); }
+.screenshot-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: start;
+    gap: 20px;
+}
+.phone-shot { margin: 0; }
+.phone-shot-offset { margin-top: 48px; }
+.phone-shot img {
+    display: block;
+    width: 100%;
+    border: 1px solid #d8ded6;
+    border-radius: 28px;
+    box-shadow: 0 20px 42px rgba(23, 60, 53, .12);
+}
+.phone-shot figcaption {
+    margin-top: 16px;
+    color: var(--muted);
+    font-size: .88rem;
+    font-weight: 700;
+    text-align: center;
+}
 
 .features { padding: 94px 0; border-top: 1px solid #d9dfd8; }
 .section-intro { max-width: 650px; margin-top: 18px; color: var(--muted); }
@@ -155,6 +213,10 @@ footer {
     .hero { min-height: auto; grid-template-columns: 1fr; gap: 44px; padding: 54px 0 72px; }
     h1 { font-size: clamp(3.2rem, 17vw, 5rem); }
     .dua-card { padding: 38px 28px; }
+    .preview-heading { grid-template-columns: 1fr; gap: 20px; }
+    .screenshot-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 14px; }
+    .phone-shot-offset { margin-top: 32px; }
+    .phone-shot img { border-radius: 20px; }
     .grid { grid-template-columns: 1fr; }
     footer { flex-direction: column; }
 }
