@@ -103,10 +103,25 @@ h2 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 500; }
 }
 .button.secondary { background: transparent; color: var(--ink); }
 
+.app-store-callout {
+    display: flex;
+    width: fit-content;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+    margin-top: 18px;
+}
+.coming-soon-label {
+    color: var(--gold);
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    line-height: 1;
+    text-transform: uppercase;
+}
 .app-store-link {
     display: block;
     width: fit-content;
-    margin-top: 18px;
     line-height: 0;
 }
 .app-store-link img { width: 160px; height: auto; }
