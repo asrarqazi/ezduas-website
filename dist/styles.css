@@ -103,31 +103,14 @@ h2 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 500; }
 }
 .button.secondary { background: transparent; color: var(--ink); }
 
-.store-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+.app-store-link {
+    display: block;
+    width: fit-content;
     margin-top: 18px;
-    padding: 9px 16px 10px;
-    border-radius: 12px;
-    background: #111;
-    color: var(--white);
-    line-height: 1.05;
-    text-decoration: none;
+    line-height: 0;
 }
-.store-badge-icon {
-    display: grid;
-    width: 30px;
-    height: 30px;
-    place-items: center;
-    border: 2px solid currentColor;
-    border-radius: 8px;
-    font-size: .92rem;
-    font-weight: 800;
-}
-.store-badge span:last-child { font-size: 1.15rem; font-weight: 650; }
-.store-badge small { display: block; margin-bottom: 3px; font-size: .65rem; font-weight: 500; }
-.store-badge:hover { background: #2a2a2a; }
+.app-store-link img { width: 160px; height: auto; }
+.app-store-link:hover { opacity: .82; }
 
 .dua-card {
     position: relative;
@@ -153,21 +136,40 @@ h2 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 500; }
 
 .preview { padding: 94px 0 110px; border-top: 1px solid #d9dfd8; }
 .preview-heading {
-    display: grid;
-    grid-template-columns: 1.2fr .8fr;
+    display: flex;
     align-items: end;
-    gap: 48px;
+    justify-content: space-between;
+    gap: 32px;
     margin-bottom: 54px;
 }
-.preview-heading > p { margin: 0 0 4px; color: var(--muted); }
-.screenshot-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    align-items: start;
-    gap: 20px;
+.preview-controls { display: flex; gap: 10px; padding-bottom: 6px; }
+.carousel-button {
+    width: 48px;
+    height: 48px;
+    border: 1px solid #cbd6ce;
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 1.35rem;
 }
-.phone-shot { margin: 0; }
-.phone-shot-offset { margin-top: 48px; }
+.carousel-button:hover { background: var(--sage); }
+.carousel-button:focus-visible, .screenshot-carousel:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+.screenshot-carousel {
+    display: flex;
+    gap: 28px;
+    overflow-x: auto;
+    padding: 4px 4px 34px;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: var(--gold) #e8ece5;
+    scrollbar-width: thin;
+}
+.phone-shot {
+    flex: 0 0 min(29vw, 285px);
+    margin: 0;
+    scroll-snap-align: start;
+}
 .phone-shot img {
     display: block;
     width: 100%;
@@ -213,9 +215,11 @@ footer {
     .hero { min-height: auto; grid-template-columns: 1fr; gap: 44px; padding: 54px 0 72px; }
     h1 { font-size: clamp(3.2rem, 17vw, 5rem); }
     .dua-card { padding: 38px 28px; }
-    .preview-heading { grid-template-columns: 1fr; gap: 20px; }
-    .screenshot-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 14px; }
-    .phone-shot-offset { margin-top: 32px; }
+    .preview-heading { align-items: center; gap: 18px; }
+    .preview-controls { flex: 0 0 auto; }
+    .carousel-button { width: 42px; height: 42px; }
+    .screenshot-carousel { gap: 16px; margin-right: -20px; }
+    .phone-shot { flex-basis: min(68vw, 285px); }
     .phone-shot img { border-radius: 20px; }
     .grid { grid-template-columns: 1fr; }
     footer { flex-direction: column; }
