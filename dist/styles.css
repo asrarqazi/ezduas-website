@@ -44,15 +44,18 @@ header {
 }
 
 .mark {
-    display: grid;
     width: 38px;
     height: 38px;
-    place-items: center;
     border-radius: 12px;
-    background: var(--ink);
-    color: var(--white);
-    font-family: Georgia, serif;
-    font-size: 1.25rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(23, 60, 53, .18);
+}
+
+.mark img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 nav { display: flex; gap: 24px; }
